@@ -14,8 +14,7 @@ import {
 import { createContext, useLayoutEffect, useState } from 'react'
 import { firestore } from '../configs/firebase'
 
-// const COLLECTION_NAME = 'JoaoHedyYazenHealthTestChat'
-const COLLECTION_NAME = 'JoaoHedyTestChat'
+const COLLECTION_NAME = 'JoaoHedyYazenHealthTestChat'
 const RECORDS_PER_FETCH = 25
 export interface MessageContentText {
     type: 'text'
