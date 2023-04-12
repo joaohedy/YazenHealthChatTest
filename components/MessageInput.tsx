@@ -1,11 +1,6 @@
 import React, { useCallback, useState } from 'react'
-import {
-    View,
-    TextInput,
-    StyleSheet,
-    Button,
-    TextInputProps,
-} from 'react-native'
+import { View, TextInput, StyleSheet, TextInputProps } from 'react-native'
+import { Button } from './common/Button'
 
 export type MessageInputProps = {
     buttonText?: string
@@ -38,7 +33,7 @@ export const MessageInput = ({
                 />
             </View>
 
-            <Button title={buttonText || 'Send'} color={'#000'} onPress={handlePress} />
+            <Button label={'Send'} onPress={handlePress} />
         </View>
     )
 }

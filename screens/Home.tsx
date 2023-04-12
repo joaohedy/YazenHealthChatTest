@@ -1,6 +1,7 @@
 import {
     Keyboard,
     KeyboardAvoidingView,
+    Platform,
     StyleSheet,
     Text,
     TextInput,
@@ -26,13 +27,11 @@ export const Home = () => {
     return (
         <SafeAreaView style={screenStyles.fullyCentered}>
             <KeyboardAvoidingView
-                style={screenStyles.fullyCentered}
-                behavior="padding">
+                style={[screenStyles.fullyCentered]}
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
                 <View
                     style={[screenStyles.verticallyCentered, { width: '90%' }]}>
-                    <Text style={style.nameFieldLabel}>
-                        Display name
-                    </Text>
+                    <Text style={style.nameFieldLabel}>Display name</Text>
                     <TextInput
                         placeholder="Your display name"
                         style={style.nameField}
@@ -40,7 +39,12 @@ export const Home = () => {
                         onChangeText={setDisplayName}
                     />
                 </View>
-                <Button onPress={useNamePressed} disabled={displayName.length < 3}/>
+                <Button
+                    label={'Chat!'}
+                    onPress={useNamePressed}
+                    disabled={displayName.length < 3}
+                    style={{ width: '90%' }}
+                />
             </KeyboardAvoidingView>
         </SafeAreaView>
     )

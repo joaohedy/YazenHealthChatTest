@@ -1,25 +1,22 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native"
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
-export const Button = ({disabled, onPress}) => {
+export const Button = ({ label = 'Act', disabled = false, onPress, style = null }) => {
     return (
         <TouchableOpacity
-            style={[style.container, disabled ? style.containerDisabled : null]}
+            style={[localStyle.container, disabled ? localStyle.containerDisabled : null, style]}
             onPress={onPress}
             disabled={disabled}>
-            <Text
-                style={style.text}>
-                Chat!
-            </Text>
+            <Text style={localStyle.text}>{label}</Text>
         </TouchableOpacity>
     )
 }
 
-const style = StyleSheet.create({
+const localStyle = StyleSheet.create({
     container: {
         borderRadius: 10,
         padding: 20,
         backgroundColor: '#ff581d',
-        width: '90%',
+        // width: '90%',
         alignItems: 'center',
     },
     containerDisabled: {

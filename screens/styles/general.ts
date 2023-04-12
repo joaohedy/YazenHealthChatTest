@@ -7,7 +7,7 @@ export const screenStyles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
-        paddiingBottom: 20,
+        paddingBottom: 20,
     },
     verticallyCentered: {
         flex: 1,

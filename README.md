@@ -23,7 +23,7 @@ The used node version was `v13.14.0` (in file `.nvmrc`) if you use `nvm` you may
 
 **Condition:**
 
-When in home screen having the name field focused (with keyboard visible) and pressiing the `Chat!` button directly.
+On iOS and when in home screen having the name field focused (with keyboard visible) and pressiing the `Chat!` button directly.
 
 **Behaviour:**
 
