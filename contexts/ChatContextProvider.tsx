@@ -65,7 +65,6 @@ export const ChatContextProvider: React.FC<ChatContextProviderProps> = ({
     }
 
     const addMessages = (messages: Message[], isFuture = true) => {
-        console.log('newMessages', messages)
         isFuture
             ? setMessages(existingMessages => [
                   ...messages,
@@ -81,7 +80,6 @@ export const ChatContextProvider: React.FC<ChatContextProviderProps> = ({
         arrivingMessages: QuerySnapshot<DocumentData>,
         isFuture = true,
     ) => {
-        console.log('arrivingMessages', arrivingMessages.docs.length)
         const newMessages = arrivingMessages.docs.map(
             messageFromSnapshotDocument,
         )
@@ -90,7 +88,6 @@ export const ChatContextProvider: React.FC<ChatContextProviderProps> = ({
 
     const getPreviousMessages = () => {
         if (!fetching) {
-            console.log('[getPreviousMessages] fetching... ')
             setFetching(true)
             const collectionRef = collection(firestore, COLLECTION_NAME)
             const constrains = [
@@ -115,7 +112,6 @@ export const ChatContextProvider: React.FC<ChatContextProviderProps> = ({
     }
 
     useLayoutEffect(() => {
-        console.log('[useLayoutEffect Start] fetching...')
         getPreviousMessages()
 
         // Subscribe to firestore
@@ -128,7 +124,6 @@ export const ChatContextProvider: React.FC<ChatContextProviderProps> = ({
         const unsubscribe = onSnapshot(q, snapshot => {
             snapshot.docChanges().forEach(change => {
                 if (change.type === 'added') {
-                    console.log('Subscribed sensed new message')
                     addMessages([messageFromSnapshotDocument(change.doc)])
                 }
             })

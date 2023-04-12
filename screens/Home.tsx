@@ -19,7 +19,6 @@ export const Home = () => {
     const navigation = useNavigation()
 
     const useNamePressed = () => {
-        console.log(`Use name '${displayName}'`)
         Keyboard.dismiss()
         navigation.navigate('Chat' as never)
     }
